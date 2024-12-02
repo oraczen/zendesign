@@ -1,4 +1,5 @@
-import { Meta } from "@storybook/react";
+import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/atoms/accordion";
 
-const meta: Meta<typeof Accordion> = {
+const meta = {
   title: "Atoms/Accordion",
   component: Accordion,
   tags: ["autodocs"],
@@ -25,7 +26,7 @@ const meta: Meta<typeof Accordion> = {
       description: "Choose the type of accordion behavior.",
     },
     className: {
-      control: "text", // Control for custom CSS class
+      control: "text",
     },
     collapsible: {
       control: "boolean",
@@ -35,15 +36,16 @@ const meta: Meta<typeof Accordion> = {
     },
     defaultValue: {
       control: "select",
-      options: ["item-1", "item-2", undefined], // Options for defaultValue
+      options: ["item-1", "item-2", undefined],
     },
   },
-};
+} satisfies Meta<typeof Accordion>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: React.FC<React.ComponentProps<typeof Accordion>> = (args) => {
-  return (
+export const Default: Story = {
+  render: (args) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Item 1</AccordionTrigger>
@@ -54,17 +56,12 @@ const Template: React.FC<React.ComponentProps<typeof Accordion>> = (args) => {
         <AccordionContent>Content for item 2.</AccordionContent>
       </AccordionItem>
     </Accordion>
-  );
-};
-
-// Default story with controls
-export const Default = (args: React.ComponentProps<typeof Accordion>) => (
-  <Template {...args} />
-);
-Default.args = {
-  className: "AccordionRoot",
-  type: "single", // Default type
-  defaultValue: undefined,
-  collapsible: true,
-  disabled: false,
+  ),
+  args: {
+    className: "AccordionRoot",
+    type: "single",
+    defaultValue: undefined,
+    collapsible: true,
+    disabled: false,
+  },
 };
