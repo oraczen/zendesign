@@ -1,36 +1,32 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 
-const meta: Meta<typeof Tooltip> = {
-  title: "Atoms/Tooltip",
+const meta = {
+  title: 'Atoms/Tooltip',
   component: Tooltip,
-  tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
-};
+  decorators: [
+    (Story) => (
+      <TooltipProvider>
+        <Story />
+      </TooltipProvider>
+    ),
+  ],
+} satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
-const renderTooltip = (args: object) => (
-  <TooltipProvider>
-    <Tooltip {...args}>
+export const Basic: Story = {
+  render: () => (
+    <Tooltip>
       <TooltipTrigger asChild>
         <Button variant="outline">Hover me</Button>
       </TooltipTrigger>
-      <TooltipContent>Content goes here</TooltipContent>
+      <TooltipContent>
+        <p>Tooltip content</p>
+      </TooltipContent>
     </Tooltip>
-  </TooltipProvider>
-);
-
-export const Default: Story = {
-  render: renderTooltip,
+  ),
 };

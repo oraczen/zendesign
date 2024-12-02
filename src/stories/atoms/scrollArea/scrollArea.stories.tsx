@@ -1,3 +1,4 @@
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from "@/components/atoms/scroll-area";
 import { Separator } from "@/components/ui/separator";
