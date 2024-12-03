@@ -1,5 +1,5 @@
 {
-  "name": "zendesign",
+  "name": "@allzen/zendesign",
   "version": "0.1.0",
   "private": false,
   "scripts": {
@@ -90,5 +90,22 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.6.3"
-  }
+  },
+  "description": "Components of the Zen Design System",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oraczen/zendesign.git"
+  },
+  "keywords": [
+    "Zen",
+    "Design",
+    "Framework"
+  ],
+  "author": "Oraczen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oraczen/zendesign/issues"
+  },
+  "homepage": "https://github.com/oraczen/zendesign#readme"
 }
